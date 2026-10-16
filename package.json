@@ -1,0 +1,47 @@
+{
+  "name": "xiaobao-mcp",
+  "version": "0.1.0",
+  "description": "Self-hosted MCP server for Xiaobao Schoolis, Microsoft Teams education assignments, and Outlook.",
+  "license": "MIT",
+  "author": "cyberElar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyberElar/xiaobao-mcp.git"
+  },
+  "homepage": "https://github.com/cyberElar/xiaobao-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/cyberElar/xiaobao-mcp/issues"
+  },
+  "keywords": ["mcp", "xiaobao", "schoolis", "microsoft-teams", "outlook", "self-hosted"],
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "tsx --env-file-if-exists=.env src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node --env-file-if-exists=.env dist/main.js",
+    "check": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "setup": "tsx scripts/setup.ts",
+    "session:login": "tsx --env-file-if-exists=.env scripts/login.ts",
+    "session:import": "tsx --env-file-if-exists=.env scripts/import-session.ts",
+    "session:verify": "tsx --env-file-if-exists=.env scripts/verify-session.ts",
+    "microsoft:login": "tsx --env-file-if-exists=.env scripts/microsoft-login.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "tough-cookie": "^6.0.2",
+    "unpdf": "^1.9.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.19.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,17 @@
+.git
+.env
+.env.*
+.scratch
+secrets
+sessions
+node_modules
+dist
+coverage
+handoff-exports
+reference
+analysis
+docs
+tests
+scripts
+*.md
+*.log

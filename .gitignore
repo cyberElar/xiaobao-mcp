@@ -1,0 +1,31 @@
+# Local credentials and sessions
+.env
+.env.*
+!.env.example
+secrets/
+sessions/
+cookies*.json
+storage-state*.json
+
+# Private handoff exports and scratch files
+handoff-exports/
+.scratch/
+CLAUDE.local.md
+*.log
+
+# Research archives and machine-specific handoffs
+reference/
+analysis/
+HANDOFF.md
+PLUGIN_ANALYSIS.md
+
+# Development dependencies and generated output
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store

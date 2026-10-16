@@ -1,0 +1,29 @@
+services:
+  mcp:
+    build: .
+    init: true
+    restart: unless-stopped
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: "8787"
+      SESSION_FILE: /app/sessions/schoolis.json
+      CREDENTIALS_FILE: /app/secrets/schoolis.json
+      OAUTH_FILE: /app/secrets/oauth.json
+      MICROSOFT_FILE: /app/secrets/microsoft.json
+      WRITE_STATE_FILE: /app/secrets/writes.json
+      NODE_OPTIONS: --max-old-space-size=256
+    ports:
+      - "127.0.0.1:${PORT:-8787}:8787"
+    volumes:
+      - ./sessions:/app/sessions
+      - ./secrets:/app/secrets
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 100
